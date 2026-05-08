@@ -2,7 +2,7 @@
 
 ## Purpose
 
-`svelte-design` owns the Liberté Svelte design implementation.
+`design.svelte` owns the Liberté Svelte design implementation.
 
 - `packages/components` publishes `@liberte/svelte-components`.
 - `packages/icons` publishes `@liberte/svelte-icons`.
