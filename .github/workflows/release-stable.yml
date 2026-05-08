@@ -34,10 +34,10 @@ jobs:
           set -euo pipefail
           cat > "$HOME/.npmrc" <<EOF
           @liberte:registry=https://packages.liberte.top/
-          //packages.liberte.top/:_auth=${LIBERTE_PACKAGES_NPM_AUTH}
+          //packages.liberte.top/:_authToken=${LIBERTE_PACKAGES_NPM_TOKEN}
           EOF
         env:
-          LIBERTE_PACKAGES_NPM_AUTH: ${{ secrets.LIBERTE_PACKAGES_NPM_AUTH }}
+          LIBERTE_PACKAGES_NPM_TOKEN: ${{ secrets.LIBERTE_PACKAGES_NPM_TOKEN }}
 
       - run: pnpm install --frozen-lockfile
 
