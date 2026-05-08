@@ -1,0 +1,17 @@
+{
+  "name": "svelte-design",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@10.33.2",
+  "scripts": {
+    "guard": "pnpm -r --workspace-concurrency=1 --if-present run format && pnpm -C packages/components build && pnpm -C packages/icons build && pnpm -r --workspace-concurrency=1 --if-present run lint && pnpm -r --workspace-concurrency=1 --if-present run build"
+  },
+  "devDependencies": {
+    "prettier": "3.8.3"
+  },
+  "engines": {
+    "node": ">=24.0.0",
+    "pnpm": ">=10.33.2 <11.0.0"
+  }
+}

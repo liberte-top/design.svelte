@@ -1,0 +1,28 @@
+{
+  "name": "@liberte/svelte-design-playground",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite",
+    "format": "prettier --plugin prettier-plugin-svelte --check package.json index.html tsconfig.json vite.config.ts \"src/**/*.{svelte,ts,css}\"",
+    "format:write": "prettier --plugin prettier-plugin-svelte --write package.json index.html tsconfig.json vite.config.ts \"src/**/*.{svelte,ts,css}\"",
+    "lint": "svelte-check --tsconfig ./tsconfig.json",
+    "typecheck": "svelte-check --tsconfig ./tsconfig.json"
+  },
+  "dependencies": {
+    "@liberte/svelte-components": "workspace:0.1.0",
+    "@liberte/svelte-icons": "workspace:0.1.0",
+    "svelte": "5.55.5"
+  },
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "7.1.2",
+    "@types/node": "25.6.2",
+    "prettier": "3.8.3",
+    "prettier-plugin-svelte": "3.5.1",
+    "svelte-check": "4.4.8",
+    "typescript": "6.0.3",
+    "vite": "8.0.11"
+  }
+}
