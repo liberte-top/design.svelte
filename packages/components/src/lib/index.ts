@@ -5,4 +5,5 @@ export { default as CardHeader } from "./components/CardHeader.svelte";
 export { default as Field } from "./components/Field.svelte";
 export { default as Input } from "./components/Input.svelte";
 export { default as LinkButton } from "./components/LinkButton.svelte";
+export { default as Pill } from "./components/Pill.svelte";
 export { default as SectionLabel } from "./components/SectionLabel.svelte";
