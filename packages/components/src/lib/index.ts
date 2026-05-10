@@ -8,6 +8,7 @@ export { default as LinkButton } from "./atoms/LinkButton.svelte";
 export { default as Pill } from "./atoms/Pill.svelte";
 export { default as SectionLabel } from "./atoms/SectionLabel.svelte";
 export { default as ThemeToggle } from "./atoms/ThemeToggle.svelte";
+export { default as Wordmark } from "./atoms/Wordmark.svelte";
 
 // primitives (layout + typography)
 export { default as Cluster } from "./primitives/Cluster.svelte";
