@@ -43,9 +43,9 @@
     display: grid;
     background: var(--lt-color-surface);
     color: var(--lt-color-text-primary);
-    border: 1px solid var(--lt-color-border-subtle);
     border-radius: var(--lt-radius-lg);
-    box-shadow: var(--lt-shadow-sm);
+    box-shadow: var(--lt-shadow-card);
+    transition: box-shadow var(--lt-motion-duration-base) var(--lt-motion-ease);
   }
 
   .lt-card--p-sm {

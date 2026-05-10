@@ -25,8 +25,7 @@
 
 <style>
   .lt-alert {
-    display: grid;
-    gap: var(--lt-space-1);
+    display: block;
     border: 1px solid;
     border-radius: var(--lt-radius-md);
     padding: var(--lt-space-3) var(--lt-space-4);

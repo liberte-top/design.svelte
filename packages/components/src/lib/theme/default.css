@@ -39,12 +39,20 @@
   --lt-color-brand-soft-hover: rgb(53 81 214 / 14%);
   --lt-color-on-brand: #ffffff;
 
+  /* --- legacy aliases (older atoms expect --lt-color-primary) ------------- */
+  --lt-color-primary: var(--lt-color-brand);
+  --lt-color-primary-hover: var(--lt-color-brand-hover);
+  --lt-color-on-primary: var(--lt-color-on-brand);
+
   /* --- text (5 stops) ----------------------------------------------------- */
+  --lt-color-text: #161a23;
   --lt-color-text-primary: #161a23;
   --lt-color-text-secondary: #4a5163;
   --lt-color-text-tertiary: #6b7388;
   --lt-color-text-quaternary: #99a1b3;
   --lt-color-text-disabled: #c8ccd5;
+  --lt-color-text-muted: var(--lt-color-text-tertiary);
+  --lt-color-text-subtle: var(--lt-color-text-quaternary);
 
   --lt-color-text-on-accent: var(--lt-color-on-brand);
   --lt-color-text-link: var(--lt-color-brand-500);
@@ -55,7 +63,8 @@
   --lt-color-text-info: var(--lt-color-brand-500);
 
   /* --- surface (cool-neutral; elevated relies on shadow + subtle border) -- */
-  --lt-color-bg: #f5f7fb;
+  --lt-color-bg: #f4f6fb;
+  --lt-color-bg-tint: #eef1f7;
   --lt-color-surface: #ffffff;
   --lt-color-surface-raised: #ffffff;
   --lt-color-surface-sunken: #eef1f6;
@@ -63,6 +72,7 @@
   --lt-color-surface-strong: #e1e6ee;
   --lt-color-surface-hover: rgb(22 26 35 / 4%);
   --lt-color-surface-pressed: rgb(22 26 35 / 8%);
+  --lt-color-fill-muted: var(--lt-color-surface-muted);
 
   --lt-color-surface-accent: var(--lt-color-brand-500);
   --lt-color-surface-accent-hover: var(--lt-color-brand-600);
@@ -88,8 +98,27 @@
   --lt-shadow-md: 0 4px 12px rgb(22 26 35 / 6%), 0 0 0 1px rgb(22 26 35 / 4%);
   --lt-shadow-lg: 0 12px 36px rgb(22 26 35 / 8%), 0 0 0 1px rgb(22 26 35 / 4%);
 
+  /* card-tier shadow: a touch warmer + ringed. Used by Card, popovers, etc. */
+  --lt-shadow-card:
+    0 1px 1px rgb(22 26 35 / 3%), 0 4px 16px rgb(22 26 35 / 5%),
+    0 0 0 1px rgb(22 26 35 / 5%);
+  --lt-shadow-card-hover:
+    0 2px 4px rgb(22 26 35 / 4%), 0 12px 28px rgb(22 26 35 / 7%),
+    0 0 0 1px rgb(22 26 35 / 6%);
+
+  /* lift used by primary controls on hover */
+  --lt-shadow-press:
+    inset 0 1px 0 rgb(255 255 255 / 14%), 0 1px 2px rgb(22 26 35 / 12%);
+
   /* --- focus ring --------------------------------------------------------- */
   --lt-color-focus-ring: rgb(53 81 214 / 30%);
+
+  /* --- canvas decoration -------------------------------------------------- */
+  --lt-canvas-glow: radial-gradient(
+    80rem 50rem at 50% -10%,
+    rgb(53 81 214 / 6%),
+    transparent 60%
+  );
 }
 
 /* ============================================================================
@@ -118,11 +147,18 @@
   --lt-color-brand-soft-hover: rgb(110 141 245 / 22%);
   --lt-color-on-brand: #0c1018;
 
+  --lt-color-primary: var(--lt-color-brand);
+  --lt-color-primary-hover: var(--lt-color-brand-hover);
+  --lt-color-on-primary: var(--lt-color-on-brand);
+
+  --lt-color-text: #e8ecf3;
   --lt-color-text-primary: #e8ecf3;
   --lt-color-text-secondary: #b1bccf;
   --lt-color-text-tertiary: #8b94aa;
   --lt-color-text-quaternary: #62697d;
   --lt-color-text-disabled: #4a5063;
+  --lt-color-text-muted: var(--lt-color-text-tertiary);
+  --lt-color-text-subtle: var(--lt-color-text-quaternary);
 
   --lt-color-text-on-accent: var(--lt-color-on-brand);
   --lt-color-text-link: var(--lt-color-brand-500);
@@ -132,7 +168,8 @@
   --lt-color-text-danger: #f08097;
   --lt-color-text-info: var(--lt-color-brand-500);
 
-  --lt-color-bg: #0c1018;
+  --lt-color-bg: #0a0e16;
+  --lt-color-bg-tint: #0e1320;
   --lt-color-surface: #131824;
   --lt-color-surface-raised: #1a2030;
   --lt-color-surface-sunken: #0c1018;
@@ -140,6 +177,7 @@
   --lt-color-surface-strong: #2a3247;
   --lt-color-surface-hover: rgb(232 236 243 / 4%);
   --lt-color-surface-pressed: rgb(232 236 243 / 8%);
+  --lt-color-fill-muted: var(--lt-color-surface-muted);
 
   --lt-color-surface-accent: var(--lt-color-brand-500);
   --lt-color-surface-accent-hover: var(--lt-color-brand-600);
@@ -163,7 +201,23 @@
   --lt-shadow-md: 0 4px 14px rgb(0 0 0 / 40%), 0 0 0 1px rgb(232 236 243 / 4%);
   --lt-shadow-lg: 0 16px 40px rgb(0 0 0 / 48%), 0 0 0 1px rgb(232 236 243 / 4%);
 
+  --lt-shadow-card:
+    0 1px 1px rgb(0 0 0 / 28%), 0 6px 20px rgb(0 0 0 / 36%),
+    0 0 0 1px rgb(232 236 243 / 6%);
+  --lt-shadow-card-hover:
+    0 2px 6px rgb(0 0 0 / 32%), 0 14px 40px rgb(0 0 0 / 48%),
+    0 0 0 1px rgb(232 236 243 / 8%);
+
+  --lt-shadow-press:
+    inset 0 1px 0 rgb(255 255 255 / 6%), 0 1px 2px rgb(0 0 0 / 40%);
+
   --lt-color-focus-ring: rgb(110 141 245 / 36%);
+
+  --lt-canvas-glow: radial-gradient(
+    80rem 50rem at 50% -10%,
+    rgb(110 141 245 / 8%),
+    transparent 60%
+  );
 
   color-scheme: dark;
 }
@@ -210,10 +264,11 @@
 
   /* --- type stack ------------------------------------------------------- */
   --lt-font-family-sans:
-    "IBM Plex Sans", "Inter", system-ui, -apple-system, "Segoe UI",
+    "Inter", "IBM Plex Sans", system-ui, -apple-system, "Segoe UI",
     "Helvetica Neue", sans-serif;
   --lt-font-family-mono:
-    "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+    "JetBrains Mono", "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo,
+    Consolas, monospace;
   --lt-font-family-display: var(--lt-font-family-sans);
 
   /* --- type scale (modular) -------------------------------------------- */
@@ -227,14 +282,16 @@
   --lt-text-3xl: 30px;
   --lt-text-display: 36px;
 
-  --lt-leading-tight: 1.25;
+  --lt-leading-tight: 1.2;
   --lt-leading-snug: 1.4;
   --lt-leading-normal: 1.55;
   --lt-leading-relaxed: 1.65;
 
-  --lt-tracking-tight: -0.02em;
+  --lt-tracking-tightest: -0.03em;
+  --lt-tracking-tight: -0.018em;
   --lt-tracking-normal: 0;
   --lt-tracking-wide: 0.04em;
+  --lt-tracking-widest: 0.08em;
 
   --lt-font-weight-normal: 400;
   --lt-font-weight-medium: 500;
@@ -247,6 +304,7 @@
   --lt-motion-duration-slow: 280ms;
   --lt-motion-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
   --lt-motion-ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --lt-motion-ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 /* ============================================================================
@@ -265,13 +323,17 @@ body {
 
 body {
   min-height: 100vh;
-  background: var(--lt-color-bg);
+  background-color: var(--lt-color-bg);
+  background-image: var(--lt-canvas-glow);
+  background-attachment: fixed;
   color: var(--lt-color-text-primary);
   font-family: var(--lt-font-family-sans);
   font-size: var(--lt-text-base);
   line-height: var(--lt-leading-normal);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "cv11", "ss01", "ss03";
   transition:
     background-color var(--lt-motion-duration-base) var(--lt-motion-ease),
     color var(--lt-motion-duration-base) var(--lt-motion-ease);
@@ -319,4 +381,9 @@ p {
 
 code {
   font-family: var(--lt-font-family-mono);
+}
+
+::selection {
+  background: var(--lt-color-brand-soft-hover);
+  color: var(--lt-color-text-primary);
 }

@@ -32,6 +32,7 @@
 
 <style>
   .lt-button {
+    position: relative;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -41,22 +42,21 @@
     padding-inline: var(--lt-space-4);
     font-weight: var(--lt-font-weight-strong);
     line-height: 1;
+    letter-spacing: -0.005em;
     text-decoration: none;
     cursor: pointer;
+    user-select: none;
     transition:
       background-color var(--lt-motion-duration-fast) var(--lt-motion-ease),
       border-color var(--lt-motion-duration-fast) var(--lt-motion-ease),
       color var(--lt-motion-duration-fast) var(--lt-motion-ease),
+      box-shadow var(--lt-motion-duration-fast) var(--lt-motion-ease),
       transform var(--lt-motion-duration-fast) var(--lt-motion-ease);
   }
 
   .lt-button:focus-visible {
     outline: 3px solid var(--lt-color-focus-ring);
     outline-offset: 2px;
-  }
-
-  .lt-button:active:not(:disabled) {
-    transform: translateY(1px);
   }
 
   .lt-button:disabled {
@@ -90,10 +90,21 @@
     background: var(--lt-color-brand);
     border-color: var(--lt-color-brand);
     color: var(--lt-color-on-brand);
+    box-shadow: var(--lt-shadow-press);
   }
   .lt-button--primary:hover:not(:disabled) {
     background: var(--lt-color-brand-hover);
     border-color: var(--lt-color-brand-hover);
+    transform: translateY(-1px);
+    box-shadow:
+      var(--lt-shadow-press),
+      0 6px 16px rgb(53 81 214 / 22%);
+  }
+  .lt-button--primary:active:not(:disabled) {
+    transform: translateY(0);
+    background: var(--lt-color-brand-active);
+    border-color: var(--lt-color-brand-active);
+    box-shadow: var(--lt-shadow-press);
   }
 
   .lt-button--secondary {
@@ -105,6 +116,9 @@
     background: var(--lt-color-surface-muted);
     border-color: var(--lt-color-border-strong);
   }
+  .lt-button--secondary:active:not(:disabled) {
+    background: var(--lt-color-surface-pressed);
+  }
 
   .lt-button--ghost {
     background: transparent;
@@ -114,5 +128,8 @@
   .lt-button--ghost:hover:not(:disabled) {
     background: var(--lt-color-surface-hover);
     color: var(--lt-color-text-primary);
+  }
+  .lt-button--ghost:active:not(:disabled) {
+    background: var(--lt-color-surface-pressed);
   }
 </style>

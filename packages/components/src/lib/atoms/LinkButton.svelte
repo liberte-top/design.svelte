@@ -2,7 +2,7 @@
   import type { HTMLAnchorAttributes } from "svelte/elements";
 
   type LinkButtonVariant = "primary" | "secondary" | "ghost";
-  type LinkButtonSize = "md" | "lg";
+  type LinkButtonSize = "sm" | "md" | "lg";
 
   type Props = HTMLAnchorAttributes & {
     variant?: LinkButtonVariant;
@@ -32,153 +32,104 @@
 
 <style>
   .lt-link-button {
-    --_link-button-height: var(
-      --lt-button-height,
-      var(--lt-control-height, 2.75rem)
-    );
-    --_link-button-padding-inline: var(--lt-button-padding-inline, 1rem);
-    --_link-button-gap: var(--lt-button-gap, 0.5rem);
-    --_link-button-radius: var(--lt-button-radius, var(--lt-radius-md, 0.5rem));
-    --_link-button-border-width: var(--lt-button-border-width, 1px);
-    --_link-button-font-weight: var(
-      --lt-button-font-weight,
-      var(--lt-font-weight-strong, 600)
-    );
-    --_link-button-font-size: var(--lt-button-font-size, 0.9375rem);
-    --_link-button-line-height: var(--lt-button-line-height, 1);
-    --_link-button-shadow: var(--lt-button-shadow, none);
-    --_link-button-focus-ring: var(
-      --lt-button-focus-ring,
-      0 0 0 3px rgba(31, 111, 235, 0.28)
-    );
-    --_link-button-motion-duration: var(
-      --lt-button-motion-duration,
-      var(--lt-motion-duration-fast, 120ms)
-    );
-    --_link-button-motion-ease: var(--lt-button-motion-ease, ease);
-    --_link-button-bg: var(
-      --lt-button-primary-bg,
-      var(--lt-color-primary, #1f6feb)
-    );
-    --_link-button-border: var(
-      --lt-button-primary-border,
-      var(--lt-color-primary, #1f6feb)
-    );
-    --_link-button-text: var(
-      --lt-button-primary-color,
-      var(--lt-color-on-primary, #ffffff)
-    );
-    --_link-button-hover-bg: var(
-      --lt-button-primary-bg-hover,
-      var(--lt-color-primary-hover, #1658b5)
-    );
-    --_link-button-hover-border: var(
-      --lt-button-primary-border-hover,
-      var(--lt-color-primary-hover, #1658b5)
-    );
-    --_link-button-hover-text: var(
-      --lt-button-primary-color-hover,
-      var(--lt-color-on-primary, #ffffff)
-    );
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: var(--_link-button-gap);
-    min-height: var(--_link-button-height);
-    padding-inline: var(--_link-button-padding-inline);
-    border: var(--_link-button-border-width) solid var(--_link-button-border);
-    border-radius: var(--_link-button-radius);
-    background: var(--_link-button-bg);
-    color: var(--_link-button-text);
-    font: inherit;
-    font-size: var(--_link-button-font-size);
-    font-weight: var(--_link-button-font-weight);
-    line-height: var(--_link-button-line-height);
+    gap: var(--lt-space-2);
+    border: 1px solid transparent;
+    border-radius: var(--lt-radius-md);
+    padding-inline: var(--lt-space-4);
+    font-weight: var(--lt-font-weight-strong);
+    line-height: 1;
+    letter-spacing: -0.005em;
     text-decoration: none;
-    box-shadow: var(--_link-button-shadow);
+    cursor: pointer;
+    user-select: none;
     transition:
-      background-color var(--_link-button-motion-duration)
-        var(--_link-button-motion-ease),
-      border-color var(--_link-button-motion-duration)
-        var(--_link-button-motion-ease),
-      color var(--_link-button-motion-duration) var(--_link-button-motion-ease),
-      box-shadow var(--_link-button-motion-duration)
-        var(--_link-button-motion-ease),
-      transform var(--_link-button-motion-duration)
-        var(--_link-button-motion-ease);
+      background-color var(--lt-motion-duration-fast) var(--lt-motion-ease),
+      border-color var(--lt-motion-duration-fast) var(--lt-motion-ease),
+      color var(--lt-motion-duration-fast) var(--lt-motion-ease),
+      box-shadow var(--lt-motion-duration-fast) var(--lt-motion-ease),
+      transform var(--lt-motion-duration-fast) var(--lt-motion-ease);
   }
 
   .lt-link-button:hover {
-    background: var(--_link-button-hover-bg);
-    border-color: var(--_link-button-hover-border);
-    color: var(--_link-button-hover-text);
     text-decoration: none;
   }
 
-  .lt-link-button:active {
-    transform: translateY(var(--lt-button-active-translate-y, 1px));
-  }
-
   .lt-link-button:focus-visible {
-    outline: none;
-    box-shadow: var(--_link-button-shadow), var(--_link-button-focus-ring);
-  }
-
-  .lt-link-button--secondary {
-    --_link-button-bg: var(
-      --lt-button-secondary-bg,
-      var(--lt-color-surface, #ffffff)
-    );
-    --_link-button-border: var(
-      --lt-button-secondary-border,
-      var(--lt-color-border, #d0d7de)
-    );
-    --_link-button-text: var(
-      --lt-button-secondary-color,
-      var(--lt-color-text, #1f2328)
-    );
-    --_link-button-hover-bg: var(
-      --lt-button-secondary-bg-hover,
-      var(--lt-color-surface-hover, #f6f8fa)
-    );
-    --_link-button-hover-border: var(
-      --lt-button-secondary-border-hover,
-      var(--lt-color-border, #d0d7de)
-    );
-    --_link-button-hover-text: var(
-      --lt-button-secondary-color-hover,
-      var(--lt-color-text, #1f2328)
-    );
-  }
-
-  .lt-link-button--ghost {
-    --_link-button-bg: var(--lt-button-ghost-bg, transparent);
-    --_link-button-border: var(--lt-button-ghost-border, transparent);
-    --_link-button-text: var(
-      --lt-button-ghost-color,
-      var(--lt-color-text, #1f2328)
-    );
-    --_link-button-hover-bg: var(
-      --lt-button-ghost-bg-hover,
-      rgba(31, 35, 40, 0.06)
-    );
-    --_link-button-hover-border: var(
-      --lt-button-ghost-border-hover,
-      transparent
-    );
-    --_link-button-hover-text: var(
-      --lt-button-ghost-color-hover,
-      var(--lt-color-text, #1f2328)
-    );
-  }
-
-  .lt-link-button--lg {
-    --_link-button-height: var(--lt-button-height-lg, 3rem);
-    --_link-button-padding-inline: var(--lt-button-padding-inline-lg, 1.25rem);
-    --_link-button-font-size: var(--lt-button-font-size-lg, 1rem);
+    outline: 3px solid var(--lt-color-focus-ring);
+    outline-offset: 2px;
   }
 
   .lt-link-button--block {
+    display: flex;
     width: 100%;
+  }
+
+  .lt-link-button--sm {
+    min-height: var(--lt-control-height-sm);
+    padding-inline: var(--lt-space-3);
+    font-size: var(--lt-text-sm);
+  }
+
+  .lt-link-button--md {
+    min-height: var(--lt-control-height);
+    font-size: var(--lt-text-md);
+  }
+
+  .lt-link-button--lg {
+    min-height: var(--lt-control-height-lg);
+    padding-inline: var(--lt-space-5);
+    font-size: var(--lt-text-base);
+  }
+
+  .lt-link-button--primary {
+    background: var(--lt-color-brand);
+    border-color: var(--lt-color-brand);
+    color: var(--lt-color-on-brand);
+    box-shadow: var(--lt-shadow-press);
+  }
+  .lt-link-button--primary:hover {
+    background: var(--lt-color-brand-hover);
+    border-color: var(--lt-color-brand-hover);
+    color: var(--lt-color-on-brand);
+    transform: translateY(-1px);
+    box-shadow:
+      var(--lt-shadow-press),
+      0 6px 16px rgb(53 81 214 / 22%);
+  }
+  .lt-link-button--primary:active {
+    transform: translateY(0);
+    background: var(--lt-color-brand-active);
+    border-color: var(--lt-color-brand-active);
+    box-shadow: var(--lt-shadow-press);
+  }
+
+  .lt-link-button--secondary {
+    background: var(--lt-color-surface);
+    border-color: var(--lt-color-border);
+    color: var(--lt-color-text-primary);
+  }
+  .lt-link-button--secondary:hover {
+    background: var(--lt-color-surface-muted);
+    border-color: var(--lt-color-border-strong);
+    color: var(--lt-color-text-primary);
+  }
+  .lt-link-button--secondary:active {
+    background: var(--lt-color-surface-pressed);
+  }
+
+  .lt-link-button--ghost {
+    background: transparent;
+    border-color: transparent;
+    color: var(--lt-color-text-secondary);
+  }
+  .lt-link-button--ghost:hover {
+    background: var(--lt-color-surface-hover);
+    color: var(--lt-color-text-primary);
+  }
+  .lt-link-button--ghost:active {
+    background: var(--lt-color-surface-pressed);
   }
 </style>

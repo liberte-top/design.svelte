@@ -1,12 +1,15 @@
 // atoms (interactive controls)
 export { default as Alert } from "./atoms/Alert.svelte";
+export { default as Avatar } from "./atoms/Avatar.svelte";
 export { default as Button } from "./atoms/Button.svelte";
 export { default as Field } from "./atoms/Field.svelte";
 export { default as IconButton } from "./atoms/IconButton.svelte";
 export { default as Input } from "./atoms/Input.svelte";
 export { default as LinkButton } from "./atoms/LinkButton.svelte";
+export { default as Mark } from "./atoms/Mark.svelte";
 export { default as Pill } from "./atoms/Pill.svelte";
 export { default as SectionLabel } from "./atoms/SectionLabel.svelte";
+export { default as Spinner } from "./atoms/Spinner.svelte";
 export { default as ThemeToggle } from "./atoms/ThemeToggle.svelte";
 export { default as Wordmark } from "./atoms/Wordmark.svelte";
 
@@ -27,8 +30,10 @@ export { default as Surface } from "./primitives/Surface.svelte";
 export { default as Text } from "./primitives/Text.svelte";
 
 // composition (compound components)
+export { default as AppShell } from "./composition/AppShell.svelte";
 export { default as Card } from "./composition/Card.svelte";
 export { default as CardHeader } from "./composition/CardHeader.svelte";
+export { default as PageHeader } from "./composition/PageHeader.svelte";
 
 // stores (theme + future state)
 export {
