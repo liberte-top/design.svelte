@@ -1,32 +1,257 @@
+/* ============================================================================
+ * @liberte/svelte-components — theme tokens
+ *
+ * Single source of truth for color / surface / border / text / spacing /
+ * radius / typography / shadow / motion. Atoms reference these via
+ * --lt-* and never hard-code raw values; web pages compose only atoms
+ * and never write CSS at all, so changing these tokens repaints the
+ * entire product.
+ *
+ * Theme switching: a `data-theme="dark"` attribute on <html> swaps to
+ * the dark palette. Pre-paint inline scripts in each web's host HTML
+ * set this attribute from localStorage / prefers-color-scheme before
+ * first render.
+ * ========================================================================== */
+
+/* ============================================================================
+ * Light theme (default)
+ * ========================================================================== */
+
 :root {
-  font-family: "IBM Plex Sans", "Segoe UI", sans-serif;
-  color: #1f2328;
-  background: #f6f8fa;
-  --lt-color-primary: #1f6feb;
-  --lt-color-primary-hover: #1658b5;
-  --lt-color-on-primary: #ffffff;
+  --lt-color-scheme: light;
+
+  /* --- brand scale (anchor 500 = #3551d6, refined indigo) ----------------- */
+  --lt-color-brand-50: #eef1fc;
+  --lt-color-brand-100: #dde3f8;
+  --lt-color-brand-200: #b8c4f0;
+  --lt-color-brand-300: #8fa1e5;
+  --lt-color-brand-400: #6479d8;
+  --lt-color-brand-500: #3551d6;
+  --lt-color-brand-600: #2a3fab;
+  --lt-color-brand-700: #213081;
+  --lt-color-brand-800: #1a265e;
+  --lt-color-brand-900: #131c46;
+
+  --lt-color-brand: var(--lt-color-brand-500);
+  --lt-color-brand-hover: var(--lt-color-brand-600);
+  --lt-color-brand-active: var(--lt-color-brand-700);
+  --lt-color-brand-soft: rgb(53 81 214 / 8%);
+  --lt-color-brand-soft-hover: rgb(53 81 214 / 14%);
+  --lt-color-on-brand: #ffffff;
+
+  /* --- text (5 stops) ----------------------------------------------------- */
+  --lt-color-text-primary: #161a23;
+  --lt-color-text-secondary: #4a5163;
+  --lt-color-text-tertiary: #6b7388;
+  --lt-color-text-quaternary: #99a1b3;
+  --lt-color-text-disabled: #c8ccd5;
+
+  --lt-color-text-on-accent: var(--lt-color-on-brand);
+  --lt-color-text-link: var(--lt-color-brand-500);
+  --lt-color-text-link-hover: var(--lt-color-brand-600);
+  --lt-color-text-success: #0e8a5f;
+  --lt-color-text-warning: #b66b09;
+  --lt-color-text-danger: #b8334a;
+  --lt-color-text-info: var(--lt-color-brand-500);
+
+  /* --- surface (cool-neutral; elevated relies on shadow + subtle border) -- */
+  --lt-color-bg: #f5f7fb;
   --lt-color-surface: #ffffff;
-  --lt-color-surface-hover: #f6f8fa;
-  --lt-color-border: #d0d7de;
-  --lt-color-border-strong: #8c959f;
-  --lt-color-border-muted: #e6ebf1;
-  --lt-color-text: #1f2328;
-  --lt-color-text-muted: #59636e;
-  --lt-color-text-subtle: #8c959f;
-  --lt-color-fill-muted: #f6f8fa;
-  --lt-color-danger: #cf222e;
-  --lt-color-success: #1a7f37;
-  --lt-color-success-surface: #dafbe1;
-  --lt-color-success-border: #aceebb;
-  --lt-color-danger-surface: #ffebe9;
-  --lt-color-danger-border: #ffcecb;
-  --lt-radius-md: 8px;
-  --lt-radius-lg: 12px;
-  --lt-control-height: 44px;
-  --lt-font-weight-strong: 600;
-  --lt-motion-duration-fast: 120ms;
-  --lt-card-shadow: 0 1px 3px rgba(27, 31, 36, 0.08);
+  --lt-color-surface-raised: #ffffff;
+  --lt-color-surface-sunken: #eef1f6;
+  --lt-color-surface-muted: #f5f7fb;
+  --lt-color-surface-strong: #e1e6ee;
+  --lt-color-surface-hover: rgb(22 26 35 / 4%);
+  --lt-color-surface-pressed: rgb(22 26 35 / 8%);
+
+  --lt-color-surface-accent: var(--lt-color-brand-500);
+  --lt-color-surface-accent-hover: var(--lt-color-brand-600);
+  --lt-color-surface-accent-soft: var(--lt-color-brand-soft);
+
+  --lt-color-surface-success: rgb(14 138 95 / 8%);
+  --lt-color-surface-warning: rgb(182 107 9 / 10%);
+  --lt-color-surface-danger: rgb(184 51 74 / 8%);
+  --lt-color-surface-info: var(--lt-color-brand-soft);
+
+  /* --- border ------------------------------------------------------------- */
+  --lt-color-border-subtle: #eef0f4;
+  --lt-color-border: #dee2ea;
+  --lt-color-border-strong: #b3bbcb;
+  --lt-color-border-success: rgb(14 138 95 / 28%);
+  --lt-color-border-warning: rgb(182 107 9 / 32%);
+  --lt-color-border-danger: rgb(184 51 74 / 32%);
+  --lt-color-border-info: rgb(53 81 214 / 28%);
+
+  /* --- shadow ------------------------------------------------------------- */
+  --lt-shadow-xs: 0 1px 1px rgb(22 26 35 / 4%);
+  --lt-shadow-sm: 0 1px 2px rgb(22 26 35 / 5%), 0 0 0 1px rgb(22 26 35 / 4%);
+  --lt-shadow-md: 0 4px 12px rgb(22 26 35 / 6%), 0 0 0 1px rgb(22 26 35 / 4%);
+  --lt-shadow-lg: 0 12px 36px rgb(22 26 35 / 8%), 0 0 0 1px rgb(22 26 35 / 4%);
+
+  /* --- focus ring --------------------------------------------------------- */
+  --lt-color-focus-ring: rgb(53 81 214 / 30%);
 }
+
+/* ============================================================================
+ * Dark theme (activated by [data-theme="dark"] on the root element)
+ * ========================================================================== */
+
+:root[data-theme="dark"] {
+  --lt-color-scheme: dark;
+
+  /* brand: lift one step in dark; soft uses higher alpha for legibility */
+  --lt-color-brand-50: #1a2050;
+  --lt-color-brand-100: #21296a;
+  --lt-color-brand-200: #2a3585;
+  --lt-color-brand-300: #3b4ba6;
+  --lt-color-brand-400: #5167c8;
+  --lt-color-brand-500: #6e8df5;
+  --lt-color-brand-600: #8aa4f8;
+  --lt-color-brand-700: #a6bcfa;
+  --lt-color-brand-800: #c2d0fc;
+  --lt-color-brand-900: #dee5fd;
+
+  --lt-color-brand: var(--lt-color-brand-500);
+  --lt-color-brand-hover: var(--lt-color-brand-600);
+  --lt-color-brand-active: var(--lt-color-brand-700);
+  --lt-color-brand-soft: rgb(110 141 245 / 14%);
+  --lt-color-brand-soft-hover: rgb(110 141 245 / 22%);
+  --lt-color-on-brand: #0c1018;
+
+  --lt-color-text-primary: #e8ecf3;
+  --lt-color-text-secondary: #b1bccf;
+  --lt-color-text-tertiary: #8b94aa;
+  --lt-color-text-quaternary: #62697d;
+  --lt-color-text-disabled: #4a5063;
+
+  --lt-color-text-on-accent: var(--lt-color-on-brand);
+  --lt-color-text-link: var(--lt-color-brand-500);
+  --lt-color-text-link-hover: var(--lt-color-brand-600);
+  --lt-color-text-success: #5cc991;
+  --lt-color-text-warning: #e4a64f;
+  --lt-color-text-danger: #f08097;
+  --lt-color-text-info: var(--lt-color-brand-500);
+
+  --lt-color-bg: #0c1018;
+  --lt-color-surface: #131824;
+  --lt-color-surface-raised: #1a2030;
+  --lt-color-surface-sunken: #0c1018;
+  --lt-color-surface-muted: #0f141e;
+  --lt-color-surface-strong: #2a3247;
+  --lt-color-surface-hover: rgb(232 236 243 / 4%);
+  --lt-color-surface-pressed: rgb(232 236 243 / 8%);
+
+  --lt-color-surface-accent: var(--lt-color-brand-500);
+  --lt-color-surface-accent-hover: var(--lt-color-brand-600);
+  --lt-color-surface-accent-soft: var(--lt-color-brand-soft);
+
+  --lt-color-surface-success: rgb(92 201 145 / 12%);
+  --lt-color-surface-warning: rgb(228 166 79 / 14%);
+  --lt-color-surface-danger: rgb(240 128 151 / 14%);
+  --lt-color-surface-info: var(--lt-color-brand-soft);
+
+  --lt-color-border-subtle: #1d2433;
+  --lt-color-border: #28304a;
+  --lt-color-border-strong: #4a5673;
+  --lt-color-border-success: rgb(92 201 145 / 32%);
+  --lt-color-border-warning: rgb(228 166 79 / 36%);
+  --lt-color-border-danger: rgb(240 128 151 / 36%);
+  --lt-color-border-info: rgb(110 141 245 / 32%);
+
+  --lt-shadow-xs: 0 1px 1px rgb(0 0 0 / 32%);
+  --lt-shadow-sm: 0 1px 2px rgb(0 0 0 / 32%), 0 0 0 1px rgb(232 236 243 / 4%);
+  --lt-shadow-md: 0 4px 14px rgb(0 0 0 / 40%), 0 0 0 1px rgb(232 236 243 / 4%);
+  --lt-shadow-lg: 0 16px 40px rgb(0 0 0 / 48%), 0 0 0 1px rgb(232 236 243 / 4%);
+
+  --lt-color-focus-ring: rgb(110 141 245 / 36%);
+
+  color-scheme: dark;
+}
+
+:root {
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+}
+
+/* ============================================================================
+ * Theme-agnostic tokens (same in light + dark)
+ * ========================================================================== */
+
+:root {
+  /* --- spacing (4-step base) -------------------------------------------- */
+  --lt-space-0: 0;
+  --lt-space-1: 4px;
+  --lt-space-2: 8px;
+  --lt-space-3: 12px;
+  --lt-space-4: 16px;
+  --lt-space-5: 20px;
+  --lt-space-6: 24px;
+  --lt-space-8: 32px;
+  --lt-space-10: 40px;
+  --lt-space-12: 48px;
+  --lt-space-16: 64px;
+  --lt-space-20: 80px;
+
+  /* --- radius ----------------------------------------------------------- */
+  --lt-radius-xs: 4px;
+  --lt-radius-sm: 6px;
+  --lt-radius-md: 10px;
+  --lt-radius-lg: 14px;
+  --lt-radius-xl: 18px;
+  --lt-radius-pill: 9999px;
+
+  /* --- control sizing --------------------------------------------------- */
+  --lt-control-height-sm: 32px;
+  --lt-control-height: 40px;
+  --lt-control-height-lg: 48px;
+
+  /* --- type stack ------------------------------------------------------- */
+  --lt-font-family-sans:
+    "IBM Plex Sans", "Inter", system-ui, -apple-system, "Segoe UI",
+    "Helvetica Neue", sans-serif;
+  --lt-font-family-mono:
+    "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --lt-font-family-display: var(--lt-font-family-sans);
+
+  /* --- type scale (modular) -------------------------------------------- */
+  --lt-text-xs: 12px;
+  --lt-text-sm: 13px;
+  --lt-text-md: 14px;
+  --lt-text-base: 15px;
+  --lt-text-lg: 17px;
+  --lt-text-xl: 20px;
+  --lt-text-2xl: 24px;
+  --lt-text-3xl: 30px;
+  --lt-text-display: 36px;
+
+  --lt-leading-tight: 1.25;
+  --lt-leading-snug: 1.4;
+  --lt-leading-normal: 1.55;
+  --lt-leading-relaxed: 1.65;
+
+  --lt-tracking-tight: -0.02em;
+  --lt-tracking-normal: 0;
+  --lt-tracking-wide: 0.04em;
+
+  --lt-font-weight-normal: 400;
+  --lt-font-weight-medium: 500;
+  --lt-font-weight-strong: 600;
+  --lt-font-weight-bold: 700;
+
+  /* --- motion ----------------------------------------------------------- */
+  --lt-motion-duration-fast: 120ms;
+  --lt-motion-duration-base: 180ms;
+  --lt-motion-duration-slow: 280ms;
+  --lt-motion-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --lt-motion-ease-out: cubic-bezier(0, 0, 0.2, 1);
+}
+
+/* ============================================================================
+ * Base reset (intentionally minimal — only what every consumer needs)
+ * ========================================================================== */
 
 * {
   box-sizing: border-box;
@@ -40,8 +265,16 @@ body {
 
 body {
   min-height: 100vh;
-  background: var(--lt-page-bg, #f6f8fa);
-  color: var(--lt-color-text);
+  background: var(--lt-color-bg);
+  color: var(--lt-color-text-primary);
+  font-family: var(--lt-font-family-sans);
+  font-size: var(--lt-text-base);
+  line-height: var(--lt-leading-normal);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition:
+    background-color var(--lt-motion-duration-base) var(--lt-motion-ease),
+    color var(--lt-motion-duration-base) var(--lt-motion-ease);
 }
 
 button,
@@ -50,14 +283,17 @@ textarea,
 select,
 a {
   font: inherit;
+  color: inherit;
 }
 
 a {
-  color: var(--lt-link-color, var(--lt-color-primary));
+  color: var(--lt-color-text-link);
   text-decoration: none;
+  transition: color var(--lt-motion-duration-fast) var(--lt-motion-ease);
 }
 
 a:hover {
+  color: var(--lt-color-text-link-hover);
   text-decoration: underline;
 }
 
@@ -65,18 +301,22 @@ a:focus-visible,
 button:focus-visible,
 input:focus-visible,
 textarea:focus-visible,
-select:focus-visible {
-  outline: 3px solid var(--lt-focus-outline, rgba(31, 111, 235, 0.28));
+select:focus-visible,
+[role="button"]:focus-visible {
+  outline: 3px solid var(--lt-color-focus-ring);
   outline-offset: 2px;
 }
 
 h1,
 h2,
 h3,
+h4,
+h5,
+h6,
 p {
   margin: 0;
 }
 
 code {
-  font-family: "IBM Plex Mono", monospace;
+  font-family: var(--lt-font-family-mono);
 }
