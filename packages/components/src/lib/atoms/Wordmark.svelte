@@ -35,7 +35,7 @@
   class={`lt-wordmark lt-wordmark--${size} ${className}`.trim()}
 >
   {#if mark}
-    <Mark size={markSize} tone="brand" />
+    <Mark size={markSize} />
   {/if}
   <span class="lt-wordmark__text">
     {@render children?.()}
