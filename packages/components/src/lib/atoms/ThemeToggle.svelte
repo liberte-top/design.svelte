@@ -1,5 +1,5 @@
 <script lang="ts">
-  import IconButton from "./IconButton.svelte";
+  import IconButton from "./button/IconButton.svelte";
 
   type Props = {
     /** Current theme. Web layer reads this from useTheme store ($theme). */

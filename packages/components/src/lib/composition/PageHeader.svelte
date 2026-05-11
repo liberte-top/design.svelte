@@ -1,8 +1,8 @@
 <script lang="ts">
-  import Stack from "../primitives/Stack.svelte";
-  import Inline from "../primitives/Inline.svelte";
-  import Heading from "../primitives/Heading.svelte";
-  import Text from "../primitives/Text.svelte";
+  import Stack from "../primitives/layout/Stack.svelte";
+  import Inline from "../primitives/layout/Inline.svelte";
+  import Heading from "../primitives/text/Heading.svelte";
+  import Text from "../primitives/text/Text.svelte";
   import SectionLabel from "../atoms/SectionLabel.svelte";
 
   /**

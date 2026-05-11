@@ -1,8 +1,8 @@
 <script lang="ts">
-  import Stage from "../primitives/Stage.svelte";
-  import Frame from "../primitives/Frame.svelte";
-  import Stack from "../primitives/Stack.svelte";
-  import Inline from "../primitives/Inline.svelte";
+  import Stage from "../primitives/surface/Stage.svelte";
+  import Frame from "../primitives/surface/Frame.svelte";
+  import Stack from "../primitives/layout/Stack.svelte";
+  import Inline from "../primitives/layout/Inline.svelte";
 
   /**
    * Canonical page shell: Stage > Frame > Stack with a header band, a main
