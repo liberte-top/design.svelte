@@ -25,3 +25,15 @@ jobs:
       - run: pnpm -C e2e exec playwright install chromium
       - run: pnpm run guard
       - run: pnpm -C e2e test
+
+      - name: Install flavor
+        env:
+          FLAVOR_RELEASES_PUBLIC_URL: https://releases.flavor.perish.uk
+        run: |
+          set -euo pipefail
+          curl -fsSL "${FLAVOR_RELEASES_PUBLIC_URL}/stable/latest/install.sh" \
+            | sh -s -- install --public-url "${FLAVOR_RELEASES_PUBLIC_URL}"
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+
+      - name: Flavor check
+        run: flavor check
