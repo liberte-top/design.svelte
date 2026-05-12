@@ -79,6 +79,7 @@
 
   .lt-datatable__table {
     width: 100%;
+    table-layout: fixed;
     border-collapse: separate;
     border-spacing: 0;
     font-size: var(--lt-text-md);
