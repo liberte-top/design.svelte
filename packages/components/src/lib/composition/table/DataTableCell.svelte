@@ -41,6 +41,7 @@
     vertical-align: middle;
     line-height: var(--lt-leading-snug);
     text-align: start;
+    overflow-wrap: anywhere;
   }
 
   /* last row in body: drop trailing divider so border-radius shows clean */
