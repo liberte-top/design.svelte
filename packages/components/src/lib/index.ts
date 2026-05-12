@@ -1,5 +1,6 @@
 // atoms — interactive controls grouped by behavioral family
 export { default as Button } from "./atoms/button/Button.svelte";
+export { default as CopyButton } from "./atoms/button/CopyButton.svelte";
 export { default as IconButton } from "./atoms/button/IconButton.svelte";
 export { default as LinkButton } from "./atoms/button/LinkButton.svelte";
 
@@ -35,18 +36,27 @@ export { default as Surface } from "./primitives/surface/Surface.svelte";
 export { default as Code } from "./primitives/text/Code.svelte";
 export { default as Heading } from "./primitives/text/Heading.svelte";
 export { default as Pre } from "./primitives/text/Pre.svelte";
+export { default as RelativeTime } from "./primitives/text/RelativeTime.svelte";
 export { default as Text } from "./primitives/text/Text.svelte";
 
 export { default as Divider } from "./primitives/data/Divider.svelte";
 export { default as InfoList } from "./primitives/data/InfoList.svelte";
 export { default as InfoRow } from "./primitives/data/InfoRow.svelte";
+export { default as Skeleton } from "./primitives/data/Skeleton.svelte";
 
 // composition — compound components
 export { default as AppShell } from "./composition/AppShell.svelte";
 export { default as Card } from "./composition/Card.svelte";
 export { default as CardHeader } from "./composition/CardHeader.svelte";
+export { default as DataTable } from "./composition/DataTable.svelte";
+export type { DataTableColumn } from "./composition/DataTable.svelte";
+export { default as DataTableCell } from "./composition/DataTableCell.svelte";
+export { default as DataTableRow } from "./composition/DataTableRow.svelte";
+export { default as Dialog } from "./composition/Dialog.svelte";
+export { default as EmptyState } from "./composition/EmptyState.svelte";
 export { default as PageHeader } from "./composition/PageHeader.svelte";
 export { default as ProLayout } from "./composition/ProLayout.svelte";
+export { default as ToastViewport } from "./composition/ToastViewport.svelte";
 
 // stores — theme + future state
 export {
@@ -57,3 +67,13 @@ export {
   toggleTheme,
   type Theme,
 } from "./stores/theme.js";
+
+export {
+  toast,
+  toasts,
+  dismiss as dismissToast,
+  dismissAll as dismissAllToasts,
+  type Toast,
+  type ToastOptions,
+  type ToastTone,
+} from "./stores/toast.js";
