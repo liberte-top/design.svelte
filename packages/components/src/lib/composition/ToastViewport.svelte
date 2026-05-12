@@ -44,7 +44,10 @@
       in:fly={{ duration: 200, x: flyFrom.x, y: flyFrom.y }}
       out:fly={{ duration: 160, x: flyFrom.x, y: flyFrom.y }}
     >
-      <div class={`lt-toast__indicator lt-toast__indicator--${toneIcon(t.tone)}`} aria-hidden="true"></div>
+      <div
+        class={`lt-toast__indicator lt-toast__indicator--${toneIcon(t.tone)}`}
+        aria-hidden="true"
+      ></div>
       <div class="lt-toast__copy">
         <div class="lt-toast__title">{t.title}</div>
         {#if t.body}

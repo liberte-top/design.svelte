@@ -54,8 +54,7 @@ export const toast = {
     emit("danger", title, options),
   warning: (title: string, options?: ToastOptions) =>
     emit("warning", title, options),
-  info: (title: string, options?: ToastOptions) =>
-    emit("info", title, options),
+  info: (title: string, options?: ToastOptions) => emit("info", title, options),
   dismiss,
   dismissAll,
 };
