@@ -18,6 +18,12 @@
 - Use exact dependency versions. Do not use caret or tilde ranges.
 - Publish to `https://packages.liberte.top/` under the `@liberte` scope.
 
+## Component Contracts
+
+- `DataTable` uses fixed table layout so declared column widths are authoritative. Consumers should provide a `width` for each column unless equal distribution is intentional.
+- `DataTableCell` wraps long unbroken content with `overflow-wrap: anywhere` by default. Use the existing `nowrap` prop only for cells that are deliberately single-line.
+- Product repos should request missing controls from this package rather than styling raw HTML or recreating atoms locally.
+
 ## Commands
 
 - Install: `pnpm install --frozen-lockfile`
